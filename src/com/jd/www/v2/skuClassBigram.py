@@ -9,10 +9,10 @@ import math
 from operator import itemgetter
 from ctypes.test.test_errno import threading
 from com.jd.www.v2.myngram import MyNgram
-from com.jd.www.v2 import IntegrateTreade
+from com.jd.www.v2.IntegrateTreade import IntegrateTreade
 class Worker(object):
     def __init__(self):
-        self.input = "e:\\workspace\\SkuClass\\20795.txt"
+        self.input = "e:\\workspace\\SkuClass\\part-r-20795"
         self.srcLines = open(self.input,"r" , encoding="utf-8").readlines()
         self.outTfidf = open("bigram.txt", "w+" ,encoding='utf-8')
         self.classOutput="e:\\workspace\\SkuClass\\result\\"
@@ -97,7 +97,7 @@ class Worker(object):
         
         total = len(self.alldoc)
         for item in self.keydoc:
-            self.classIDF[item] = math.log(total / (1+self.keydoc[item]))
+            self.classIDF[item] = math.log(total / (1+self.keydoc[item]),10)
             
         if self.flag:
             idffile=open("idffile.txt", "w+" ,encoding='utf-8')
