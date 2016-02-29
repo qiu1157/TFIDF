@@ -52,7 +52,7 @@ class IntegrateTreade(threading.Thread):
             cnt = 0     
             for className, skuId, skuName, score in self.lineDict[self.classId]:
                     cnt += 1
-                    result = "%s\t%s\t%s\t%s\t%s" %(classId, className, skuId, skuName, str(score))
+                    result = "%s\t%s\t%s\t%s\t%s" %(self.classId, className, skuId, skuName, str(score))
                     #print("result=="+result)
                     if not self.outTfidf :
                         self.outTfidf = open(self.classOutput+""+className.replace("/","")+"bigram.txt", "w+" ,encoding='utf-8')
