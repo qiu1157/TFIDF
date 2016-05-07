@@ -12,14 +12,14 @@ from com.jd.www.v2.myngram import MyNgram
 from com.jd.www.v2.IntegrateTreade import IntegrateTreade
 class Worker(object):
     def __init__(self):
-        self.input = "e:\\workspace\\SkuClass\\part-r-20795"
+        self.input = "e:\\workspace\\SkuClass\\20795.txt"
         self.srcLines = open(self.input,"r" , encoding="utf-8").readlines()
         self.outTfidf = open("bigram.txt", "w+" ,encoding='utf-8')
         self.classOutput="e:\\workspace\\SkuClass\\result\\"
         self.N = 2
         self.myngram = MyNgram(self.N)
         self.flag = False
-        
+    
     def CalTF(self):
         #每个类目下每个分词的数量
         self.classRam = {} 
@@ -66,10 +66,7 @@ class Worker(object):
                         self.classRam[classId][item] = 1
                     else:
                         self.classRam[classId][item] += 1
-#         print("classInfo---")
-#         print(self.classInfo)
-#         print("classRam---")
-#         print(self.classRam)
+
         for classId in self.classRam:
             if classId not in self.classTf:
                 self.classTf[classId] = {}

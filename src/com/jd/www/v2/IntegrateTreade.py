@@ -37,8 +37,8 @@ class IntegrateTreade(threading.Thread):
                 className = columns[3]
                 if classId == self.classId:
                     self.ngram = self.myngram.split(skuName)
-                    score = 0
                     for item in self.ngram:
+                        score = 0
                         for ram,tfidf in self.tfidf[self.classId]:
                             if ram == item:
                                 score += tfidf
@@ -48,7 +48,7 @@ class IntegrateTreade(threading.Thread):
                 
              
                 
-            self.lineDict[self.classId] = sorted(self.lineDict[self.classId], key=itemgetter(3))  
+            self.lineDict[self.classId] = sorted(self.lineDict[self.classId], key=itemgetter(3),reverse=True)  
             cnt = 0     
             for className, skuId, skuName, score in self.lineDict[self.classId]:
                     cnt += 1
